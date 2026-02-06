@@ -1,0 +1,8 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+/* Apply Plus Jakarta Sans globally */
+body {
+  font-family: var(--font-family);
+}
