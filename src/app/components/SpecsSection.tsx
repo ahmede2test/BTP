@@ -12,6 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from './Container';
 import { GlassCard } from './GlassCard';
 import { MagneticButton } from './MagneticButton';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 import { 
   FileText, 
   Download, 
@@ -180,13 +181,15 @@ export function SpecsSection() {
               viewport={{ once: true }}
               className="relative rounded-2xl overflow-hidden h-64 shadow-xl border border-white/5"
             >
-              <img 
-                src="/images/technical-piping-system.jpg" 
-                alt="Technical Piping System" 
+              <ImageWithFallback
+                src="/images/technical-piping-system.webp"
+                alt="Technical Piping System"
+                width={600}
+                height={400}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white font-bold">Piping & Distribution</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 text-white font-bold pointer-events-none">Piping & Distribution</div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -195,13 +198,15 @@ export function SpecsSection() {
               transition={{ delay: 0.2 }}
               className="relative rounded-2xl overflow-hidden h-64 shadow-xl border border-white/5"
             >
-              <img 
-                src="/images/sedimentation-tanks-top.jpg" 
+              <ImageWithFallback 
+                src="/images/sedimentation-tanks-top.webp" 
                 alt="Triple-Disc Filtration System" 
+                width={600}
+                height={400}
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-4 left-4 text-white font-bold">Disc Filtration Precision</div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-4 text-white font-bold pointer-events-none">Disc Filtration Precision</div>
             </motion.div>
           </div>
 

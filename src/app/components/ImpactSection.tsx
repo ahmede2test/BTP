@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 import { Users, TreePine, Waves, Factory } from 'lucide-react';
 import { Container } from './Container';
 import { GlassCard } from './GlassCard';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 interface ImpactCardProps {
   icon: React.ReactNode;
@@ -78,11 +79,12 @@ export function ImpactSection() {
 
   return (
     <section id="impact" className="py-24 relative overflow-hidden">
-      {/* Background image overlay */}
       <div className="absolute inset-0 z-0 opacity-10">
-        <img 
-          src="/images/final-treated-canal.jpg" 
+        <ImageWithFallback 
+          src="/images/final-treated-canal.webp" 
           alt="Final Treated Water Canal" 
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover grayscale"
         />
       </div>

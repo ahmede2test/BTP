@@ -1,6 +1,7 @@
 import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Container } from './Container';
+import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function ContactFooter() {
   return (
@@ -24,9 +25,11 @@ export function ContactFooter() {
                 Managing Entity & Infrastructure Partner
               </p>
             </div>
-            <img 
-              src="/images/Logo.png" 
+            <ImageWithFallback 
+              src="/images/Logo.webp" 
               alt="CFM Logo" 
+              width={140}
+              height={56}
               className="h-14 w-auto grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
             />
           </motion.div>
@@ -35,9 +38,11 @@ export function ContactFooter() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16 text-left">
           {/* Column 1: Identity */}
           <div className="lg:col-span-3 flex flex-col gap-6">
-            <img 
-              src="/images/BTP Logo.jpeg" 
+            <ImageWithFallback 
+              src="/images/BTP Logo.webp" 
               alt="BTP Logo" 
+              width={64}
+              height={64}
               className="h-16 w-auto self-start rounded-lg border border-white/10 grayscale hover:grayscale-0 transition-all duration-500"
             />
             <div>

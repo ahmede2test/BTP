@@ -79,8 +79,10 @@ export function TechnologySection() {
                 System phase 01
               </div>
               <ImageWithFallback
-                src="public\images\water-intake-pumping.jpeg"
+                src="/images/water-intake-pumping.webp"
                 alt="4 Massive 3800mm Industrial Siphons"
+                width={800}
+                height={550}
                 className="w-full h-[550px] object-cover"
               />
             </div>
@@ -127,8 +129,10 @@ export function TechnologySection() {
                 System phase 02
               </div>
               <ImageWithFallback
-                src="/images/sedimentation-tanks-top.jpg"
+                src="/images/sedimentation-tanks-top.webp"
                 alt="Bahr Al-Baqar Sedimentation Tanks"
+                width={800}
+                height={550}
                 className="w-full h-[550px] object-cover transition-transform hover:scale-105 duration-700"
               />
             </div>
@@ -148,8 +152,10 @@ export function TechnologySection() {
                 System phase 03
               </div>
               <ImageWithFallback
-                src="/images/technical-piping-system.jpg"
+                src="/images/technical-piping-system.webp"
                 alt="Complex Distribution Network"
+                width={800}
+                height={550}
                 className="w-full h-[550px] object-cover"
               />
             </div>
@@ -194,8 +200,10 @@ export function TechnologySection() {
                 System phase 04
               </div>
               <ImageWithFallback
-                src="/images/sludge-solar-drying.jpg"
+                src="/images/sludge-solar-drying.webp"
                 alt="World's Largest Solar Sludge Drying Facility"
+                width={800}
+                height={550}
                 className="w-full h-[550px] object-cover"
               />
             </div>
@@ -215,8 +223,10 @@ export function TechnologySection() {
                 System phase 05
               </div>
               <ImageWithFallback
-                src="/images/final-treated-canal.jpg"
+                src="/images/final-treated-canal.webp"
                 alt="Pure Water Canal irrigation Sinai"
+                width={800}
+                height={550}
                 className="w-full h-[550px] object-cover"
               />
             </div>

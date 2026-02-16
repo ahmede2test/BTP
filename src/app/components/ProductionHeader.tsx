@@ -12,6 +12,7 @@ import { Menu, X, Home, Activity, BarChart3, ClipboardList } from "lucide-react"
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "./Container";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function ProductionHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,10 +58,12 @@ export function ProductionHeader() {
             <div className="flex items-center gap-5 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
               {/* BTP Primary Identity */}
               <div className="relative">
-                <img 
-                  src="/images/BTP Logo.jpeg" 
+                <ImageWithFallback 
+                  src="/images/BTP Logo.webp" 
                   className="h-12 w-auto rounded-lg object-contain transition-all duration-300 group-hover:brightness-110 shadow-lg shadow-black/20" 
-                  alt="BTP Logo" 
+                  alt="BTP Logo"
+                  width={48}
+                  height={48}
                 />
               </div>
 
