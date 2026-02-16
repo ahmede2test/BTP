@@ -8,7 +8,7 @@
  * - Contrack brand colors
  */
 
-import { Menu, X } from "lucide-react";
+import { Menu, X, Home, Activity, BarChart3, ClipboardList } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container } from "./Container";
@@ -27,10 +27,10 @@ export function ProductionHeader() {
   }, []);
 
   const navItems = [
-    { label: "Overview", href: "#overview" },
-    { label: "Technology", href: "#technology" },
-    { label: "Impact", href: "#impact" },
-    { label: "Specs", href: "#specs" },
+    { label: "Overview", href: "#hero", icon: <Home size={14} /> },
+    { label: "Technology", href: "#technology", icon: <Activity size={14} /> },
+    { label: "Impact", href: "#impact", icon: <BarChart3 size={14} /> },
+    { label: "Specs", href: "#specs", icon: <ClipboardList size={14} /> },
   ];
 
   return (
@@ -53,20 +53,24 @@ export function ProductionHeader() {
           `}
         >
           <div className="flex items-center justify-between px-6 py-4">
-            {/* Masterpiece Branding: CFM Logo (Left) + Contrack Text */}
-            <div className="flex items-center gap-6 group cursor-pointer">
-              <img 
-                src="/images/Logo.png" 
-                className="h-14 w-auto object-contain transition-transform group-hover:scale-105" 
-                alt="CFM Logo" 
-              />
-              
+            {/* Official Project Branding: BTP Logo + Project Identity */}
+            <div className="flex items-center gap-5 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              {/* BTP Primary Identity */}
+              <div className="relative">
+                <img 
+                  src="/images/BTP Logo.jpeg" 
+                  className="h-12 w-auto rounded-lg object-contain transition-all duration-300 group-hover:brightness-110 shadow-lg shadow-black/20" 
+                  alt="BTP Logo" 
+                />
+              </div>
+
               {/* Industrial Divider */}
-              <div className="h-10 w-px bg-white/20" />
+              <div className="h-8 w-px bg-white/20" />
 
               <div className="hidden lg:block">
-                <div className="text-[#f8fafc] font-bold text-2xl tracking-tighter uppercase flex items-center gap-2">
-                  CONTRACK <span className="text-white/20 font-light">|</span> <span className="text-sm tracking-[0.4em] font-medium text-blue-400">Management Services</span>
+                <div className="text-white font-bold text-xl tracking-tight uppercase flex flex-col">
+                  <span className="text-blue-400 text-[10px] tracking-[0.3em] font-semibold mb-0.5">Official Portal</span>
+                  Bahr Al-Baqar Treatment Plant
                 </div>
               </div>
             </div>
@@ -77,17 +81,23 @@ export function ProductionHeader() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="text-gray-300 hover:text-white transition-colors font-medium text-sm"
+                  className="group flex items-center gap-1.5 text-gray-400 hover:text-white transition-all duration-300 font-medium text-xs uppercase tracking-wider"
                 >
+                  <span className="text-gray-500 group-hover:text-blue-400 transition-colors duration-300">
+                    {item.icon}
+                  </span>
                   {item.label}
                 </a>
               ))}
             </nav>
 
-            {/* CTA Button */}
-            <button className="hidden md:block px-6 py-2.5 rounded-full bg-[#004A99] hover:bg-[#003d7e] text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#004A99]/30 hover:shadow-xl hover:shadow-[#004A99]/40">
+            {/* CTA Button: Links to Footer Contact */}
+            <a 
+              href="#contact"
+              className="hidden md:block px-6 py-2.5 rounded-full bg-[#004A99] hover:bg-[#003d7e] text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#004A99]/30 hover:shadow-xl hover:shadow-[#004A99]/40 text-center"
+            >
               Technical Inquiry
-            </button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -123,9 +133,13 @@ export function ProductionHeader() {
                       {item.label}
                     </motion.a>
                   ))}
-                  <button className="mt-4 px-6 py-3 rounded-full bg-[#004A99] hover:bg-[#003d7e] text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#004A99]/30">
+                  <a 
+                    href="#contact"
+                    className="mt-4 px-6 py-3 rounded-full bg-[#004A99] hover:bg-[#003d7e] text-white font-semibold text-sm transition-all duration-300 shadow-lg shadow-[#004A99]/30 text-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     Technical Inquiry
-                  </button>
+                  </a>
                 </nav>
               </motion.div>
             )}

@@ -55,20 +55,11 @@ export default function App() {
           {/* Section 09: HQ Command & Control (admin-night-view.jpg - Full Width Coverage) */}
           <OperationalExcellence />
 
-          {/* Section 10: Managed Services & Inquiry Portal with Dual Branding Footer */}
+          {/* Section 10: Official Master Corporate Footer */}
           <ContactFooter />
         </AnimatePresence>
       </motion.main>
 
-      {/* INDUSTRIAL OVERLAY */}
-      <div className="fixed bottom-8 left-8 z-40 hidden xl:block">
-        <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-black/40 backdrop-blur-2xl border border-white/10 shadow-2xl">
-          <div className="w-2.5 h-2.5 rounded-full bg-[#004A99] animate-pulse" />
-          <span className="text-[10px] uppercase tracking-[0.5em] font-black text-blue-100/60 transition-colors hover:text-white cursor-default">
-            Official Bahr Al-Baqar Managed Portal
-          </span>
-        </div>
-      </div>
     </div>
   );
 }

@@ -12,24 +12,64 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Container } from './Container';
 import { GlassCard } from './GlassCard';
 import { MagneticButton } from './MagneticButton';
-import { FileText, Download } from 'lucide-react';
+import { 
+  FileText, 
+  Download, 
+  Droplet, 
+  Activity, 
+  Filter, 
+  Container as ContainerIcon, 
+  Cpu, 
+  CheckCircle,
+  TreePine,
+  Sun,
+  Waves,
+  Recycle,
+  Leaf,
+  Zap,
+  MapPin,
+  Factory,
+  Building,
+  Battery,
+  Shield,
+  MessageSquare
+} from 'lucide-react';
 
-interface SpecItemProps {
+interface SpecCardProps {
+  icon: React.ReactNode;
   label: string;
   value: string;
   delay?: number;
 }
 
-function SpecItem({ label, value, delay = 0 }: SpecItemProps) {
+function SpecCard({ icon, label, value, delay = 0 }: SpecCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, duration: 0.4 }}
-      className="flex justify-between items-start py-4 border-b border-white/5 last:border-0"
+      transition={{ delay, duration: 0.5, ease: "easeOut" }}
+      whileHover={{ y: -5, scale: 1.02 }}
+      className="group"
     >
-      <span className="text-gray-400 font-medium text-sm">{label}</span>
-      <span className="text-white font-semibold text-sm text-right max-w-[60%]">{value}</span>
+      <GlassCard className="h-full p-6 relative overflow-hidden transition-all duration-500 group-hover:shadow-[0_0_30px_-5px_rgba(0,74,153,0.3)] group-hover:border-[#004A99]/50">
+        {/* Glow effect on hover */}
+        <div className="absolute -top-12 -right-12 w-24 h-24 bg-[#004A99]/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        <div className="flex flex-col gap-4">
+          <div className="w-12 h-12 rounded-xl bg-[#004A99]/10 flex items-center justify-center text-[#004A99] group-hover:bg-[#004A99] group-hover:text-white transition-all duration-300">
+            {icon}
+          </div>
+          
+          <div>
+            <div className="text-gray-400 font-bold text-[10px] uppercase tracking-[0.2em] mb-1">
+              {label}
+            </div>
+            <div className="text-white font-bold text-lg leading-snug group-hover:text-blue-400 transition-colors">
+              {value}
+            </div>
+          </div>
+        </div>
+      </GlassCard>
     </motion.div>
   );
 }
@@ -45,28 +85,28 @@ export function SpecsSection() {
 
   const specs = {
     technical: [
-      { label: "Treatment Capacity", value: "5.6 million m³/day" },
-      { label: "Intake Lines", value: "4 main lines (3800mm diameter)" },
-      { label: "Filtration", value: "120 Triple-disc filters (10-micron)" },
-      { label: "Tanks", value: "Advanced Lamella Sedimentation Tanks" },
-      { label: "Automation", value: "Full SCADA Central Control" },
-      { label: "Output Standard", value: "Egyptian Code for Water Reuse" }
+      { label: "Treatment Capacity", value: "5.6 million m³/day", icon: <Droplet size={24} /> },
+      { label: "Intake Lines", value: "4 main lines (3800mm diameter)", icon: <Activity size={24} /> },
+      { label: "Filtration", value: "120 Triple-disc filters (10-micron)", icon: <Filter size={24} /> },
+      { label: "Tanks", value: "Advanced Lamella Sedimentation Tanks", icon: <ContainerIcon size={24} /> },
+      { label: "Automation", value: "Full SCADA Central Control", icon: <Cpu size={24} /> },
+      { label: "Output Standard", value: "Egyptian Code for Water Reuse", icon: <CheckCircle size={24} /> }
     ],
     environmental: [
-      { label: "Reclamation Scope", value: "456,000 feddans in Sinai" },
-      { label: "Sludge Management", value: "Solar drying (Largest in region)" },
-      { label: "Lake Manzala Impact", value: "100% prevention of drainage pollution" },
-      { label: "Sustainability", value: "Zero liquid discharge philosophy" },
-      { label: "Ecosystem Benefit", value: "Restoring Sinai biodiversity" },
-      { label: "Climate Resilience", value: "Major carbon sequestration potential" }
+      { label: "Reclamation Scope", value: "456,000 feddans in Sinai", icon: <TreePine size={24} /> },
+      { label: "Sludge Management", value: "Solar drying (Largest in region)", icon: <Sun size={24} /> },
+      { label: "Lake Manzala Impact", value: "100% prevention of drainage pollution", icon: <Waves size={24} /> },
+      { label: "Sustainability", value: "Zero liquid discharge philosophy", icon: <Recycle size={24} /> },
+      { label: "Ecosystem Benefit", value: "Restoring Sinai biodiversity", icon: <Leaf size={24} /> },
+      { label: "Climate Resilience", value: "Major carbon sequestration potential", icon: <Zap size={24} /> }
     ],
     infrastructure: [
-      { label: "Major Crossings", value: "Dual siphons under Suez Canal" },
-      { label: "Operator", value: "Contrack Management Services" },
-      { label: "Pumping Units", value: "High-efficiency vertical turbines" },
-      { label: "Civil Works", value: "Massive concrete reclamation structures" },
-      { label: "Power Integration", value: "Dual grid redundancy" },
-      { label: "Project Status", value: "Fully Operational Production" }
+      { label: "Major Crossings", value: "Dual siphons under Suez Canal", icon: <MapPin size={24} /> },
+      { label: "Operator", value: "Contrack Management Services", icon: <Factory size={24} /> },
+      { label: "Pumping Units", value: "High-efficiency vertical turbines", icon: <Activity size={24} /> },
+      { label: "Civil Works", value: "Massive concrete structures", icon: <Building size={24} /> },
+      { label: "Power Integration", value: "Dual grid redundancy", icon: <Battery size={24} /> },
+      { label: "Project Status", value: "Fully Operational Production", icon: <Shield size={24} /> }
     ]
   };
 
@@ -90,17 +130,17 @@ export function SpecsSection() {
         </motion.div>
 
         {/* Tabbed Interface */}
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Tab Navigation */}
-          <div className="flex flex-wrap gap-3 mb-8 justify-center">
+          <div className="flex flex-wrap gap-3 mb-12 justify-center">
             {tabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`
-                  px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300
+                  px-8 py-3.5 rounded-full font-bold text-sm transition-all duration-300
                   ${activeTab === tab.id
-                    ? 'bg-[#004A99] text-white shadow-lg shadow-[#004A99]/30'
+                    ? 'bg-[#004A99] text-white shadow-xl shadow-[#004A99]/40 translate-y-[-2px]'
                     : 'bg-white/5 text-gray-400 hover:bg-white/10 hover:text-white'
                   }
                 `}
@@ -118,19 +158,17 @@ export function SpecsSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              <GlassCard className="p-8 lg:p-10 mb-8">
-                <div className="space-y-1">
-                  {specs[activeTab].map((spec, index) => (
-                    <SpecItem
-                      key={index}
-                      label={spec.label}
-                      value={spec.value}
-                      delay={index * 0.05}
-                    />
-                  ))}
-                </div>
-              </GlassCard>
+              {specs[activeTab].map((spec, index) => (
+                <SpecCard
+                  key={index}
+                  icon={spec.icon}
+                  label={spec.label}
+                  value={spec.value}
+                  delay={index * 0.05}
+                />
+              ))}
             </motion.div>
           </AnimatePresence>
 
@@ -175,15 +213,19 @@ export function SpecsSection() {
             transition={{ delay: 0.3, duration: 0.6 }}
             className="mt-12 flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <MagneticButton variant="primary">
-              <FileText size={20} />
-              Technical Inquiry
-            </MagneticButton>
+            <a href="#contact">
+              <MagneticButton variant="primary" className="w-full sm:w-auto">
+                <MessageSquare size={20} />
+                Technical Inquiry
+              </MagneticButton>
+            </a>
             
-            <MagneticButton variant="secondary">
-              <Download size={20} />
-              Download Technical PDF
-            </MagneticButton>
+            <a href="/Bahr-Al-Baqar-Technical-Profile.pdf" target="_blank" rel="noopener noreferrer">
+              <MagneticButton variant="secondary" className="w-full sm:w-auto">
+                <Download size={20} />
+                Download Technical PDF
+              </MagneticButton>
+            </a>
           </motion.div>
         </div>
       </Container>

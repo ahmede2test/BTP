@@ -18,9 +18,9 @@ export function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">B</span>
+              <span className="text-white font-bold text-xl">C</span>
             </div>
-            <span className="text-white text-xl hidden sm:block">BuildCo</span>
+            <span className="text-white text-xl hidden sm:block">Contrack FM</span>
           </div>
 
           {/* Desktop Navigation */}

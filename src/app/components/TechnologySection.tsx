@@ -79,7 +79,7 @@ export function TechnologySection() {
                 System phase 01
               </div>
               <ImageWithFallback
-                src="/images/water-intake-pumping.jpg"
+                src="public\images\water-intake-pumping.jpeg"
                 alt="4 Massive 3800mm Industrial Siphons"
                 className="w-full h-[550px] object-cover"
               />
